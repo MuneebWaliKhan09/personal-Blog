@@ -3,7 +3,7 @@ const data = [
         id: 1,
         title: "Ai is Ruled all over the World and growing idealy working",
         category: "Tech",
-        tagLine: "Apple is reportedly spending 'millions of dollars a day' on AI so that is what the",
+        tagLine: "Apple is reportedly spending 'millions of dollars a day' on AI so that is what the ",
 
         desc: [{
 

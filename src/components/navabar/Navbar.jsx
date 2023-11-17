@@ -11,14 +11,14 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='flex  nav items-center justify-between px-20 py-5  bg-[#f2f4f5]'>
+            <nav className='flex  nav items-center justify-between px-20 py-5  bg-gray-100 shadow-lg'>
                 <div>
                     <span className=' font-bold text-2xl'>BLOG {'{ MUNEEB }'}</span>
                 </div>
                 <div className=' items-center gap-9 sm:flex hidden '>
 
-                    <p> <Link className='font-semibold text-gray-600' href='/'>Home</Link></p>
-                    <p> <Link className='font-semibold text-gray-600' href='/about'>About</Link></p>
+                    <p> <Link className='font-semibold' href='/'>Home</Link></p>
+                    <p> <Link className='font-semibold' href='/about'>About</Link></p>
                     {
                         isLoged ? (
                             <div className=' py-1 px-2 flex items-center justify-center cursor-pointer   text-xl  rounded-full bg-blue-600 text-white'>
@@ -28,7 +28,7 @@ const Navbar = () => {
                             </div>
                         ) : (
 
-                            <p> <Link className='font-semibold text-gray-600' href='/login'>Login</Link></p>
+                            <p> <Link className='font-semibold' href='/login'>Login</Link></p>
                         )
                     }
                 </div>

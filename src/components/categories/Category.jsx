@@ -76,7 +76,7 @@ const Category = () => {
                                     <Image src='/c.jpg' alt={d.title} width={80} height={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
-                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d.title}/${d.id}`}>{d.title.slice(0, 70)}....</Link></p>
+                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d.title}/${d.id}`}>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</Link></p>
                                     </div>
                                 </div>
                             ))
@@ -100,8 +100,6 @@ const Category = () => {
                     <h4 className='font-semibold text-3xl p-2 text-center text-gray-500'>Trending</h4>
                     <div className='bg-gray-50 w-full h-full'>
 
-                        {/* <!-- minimum 4 titles in database --> */}
-
 
                         {
 
@@ -109,7 +107,7 @@ const Category = () => {
                                 filt.map((d) => (
                                     <div className="tech bg-gray-100">
                                         <p className='font-bold text-gray-600'>{d.category}</p>
-                                        <h3>{d.title}</h3>
+                                        <h3>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</h3>
                                         <div className="trendingLine"></div>
                                         <br />
                                     </div>
@@ -120,7 +118,7 @@ const Category = () => {
                                 }).map((d) => (
                                     <div className="tech bg-gray-100">
                                         <p className='font-bold text-gray-600'>{d.category}</p>
-                                        <h3>{d.title}</h3>
+                                        <h3>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</h3>
                                         <div className="trendingLine"></div>
                                         <br />
                                     </div>

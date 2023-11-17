@@ -1,0 +1,14 @@
+
+
+@media only screen and (max-width: 768px) {
+    .aboutus{
+        flex-direction: column;
+    }
+    .blogname{
+        font-size: 6vw;
+    }
+    .aboutimg{
+       max-width: 200% !important;
+    }
+    
+}
