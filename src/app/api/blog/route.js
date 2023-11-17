@@ -2,7 +2,8 @@ import ConnectDB from "@/db/db";
 import Blog from "@/model/Model";
 import { NextResponse } from "next/server";
 
-console.log(process.env.MONGO_URI);
+
+
 export async function GET() {
     await ConnectDB()
     const data = await Blog.find();
@@ -20,4 +21,7 @@ export async function GET() {
         }, { status: 404 })
     }
 }
+
+
+
 
