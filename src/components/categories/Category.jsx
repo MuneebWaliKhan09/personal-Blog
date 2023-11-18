@@ -66,13 +66,13 @@ const Category = () => {
 
             <div className='flex mt-9 mainDev'>
 
-                <div className=' p-9 gap-6 column1 bg-gray-50'>
+                <div className=' p-9 gap-6 column1 '>
 
                     {
 
                         filt && filt.length > 0 ? (
                             filt.map((d) => (
-                                <div className='flex items-center p-2 gap-2 blogs border border-gray-400 rounded-md hover:bg-gray-100 '>
+                                <div className='flex items-center p-2 gap-2 blogs border border-gray-400 rounded-md'>
                                     <Image src='/c.jpg' alt={d.title} width={80} height={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
@@ -96,9 +96,9 @@ const Category = () => {
 
                 </div>
 
-                <div className='bg-gray-100 w-[50%] h-[82vh] mt-9 column2 '>
-                    <h4 className='font-semibold text-3xl p-2 text-center text-gray-500'>Trending</h4>
-                    <div className='bg-gray-50 w-full h-full'>
+                <div className=' w-[50%] mt-9 column2 '>
+                    <h4 className='font-semibold text-3xl p-2 mb-4 text-center text-gray-500 '>Trending</h4>
+                    <div className='bg-gray-50 w-full cat flex flex-col gap-6'>
 
 
                         {
@@ -120,7 +120,6 @@ const Category = () => {
                                         <p className='font-bold text-gray-600'>{d.category}</p>
                                         <h3>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</h3>
                                         <div className="trendingLine"></div>
-                                        <br />
                                     </div>
 
                                 ))

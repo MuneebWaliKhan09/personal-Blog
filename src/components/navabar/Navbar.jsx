@@ -2,9 +2,11 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import "./nav.css"
+import ThemeSwitcher from '@/app/ThemeSwitcher'
+import Providers from '../../app/providers'
 
 const Navbar = () => {
-    const isLoged = false
+    const isLoged = true
     const [toggle, setToggle] = useState(false)
 
 
@@ -19,6 +21,11 @@ const Navbar = () => {
 
                     <p> <Link className='font-semibold' href='/'>Home</Link></p>
                     <p> <Link className='font-semibold' href='/about'>About</Link></p>
+                    <p>
+                        <Providers>
+                            <ThemeSwitcher />
+                        </Providers>
+                    </p>
                     {
                         isLoged ? (
                             <div className=' py-1 px-2 flex items-center justify-center cursor-pointer   text-xl  rounded-full bg-blue-600 text-white'>
@@ -44,12 +51,17 @@ const Navbar = () => {
                             <div className=' flex w-40 absolute  top-[2.50rem] rounded-r-[5px] rounded-b-[6%] rounded-[6%] right-[0.9rem] py-4 pb-6 pr-3 text-gray-900 border border-gray-400 bg-[#ececff] flex-col items-end gap-6'>
                                 <p > <Link className='py-2 px-2 pl-20  rounded-full bg-white ' href='/'>Home</Link></p>
                                 <p > <Link className='py-2 px-2 pl-20 rounded-full bg-white ' href='/about'>About</Link></p>
+                                <p>
+                                    <Providers>
+                                        <ThemeSwitcher />
+                                    </Providers>
+                                </p>
                                 {
                                     isLoged ? (
-                                        <Link className='py-2 px-2 pl-20 rounded-full bg-white ' href='/profile'>
+                                        <Link className='rounded-full bg-white ' href='/profile'>
                                             profile
                                         </Link>
-                                        
+
                                     ) : (
 
                                         <p > <Link className='py-2 px-2 pl-20 rounded-full bg-white ' href='/login'>Login</Link></p>

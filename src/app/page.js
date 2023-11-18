@@ -4,21 +4,19 @@ import Category from '@/components/categories/Category'
 
 
 
-const HomePage = () => {
+const HomePage = ({ children }) => {
 
 
 
   return (
     <div>
-      <div>
         <Home />
-      </div>
 
-      <div className=' mt-20 bg-[ghostwhite] p-4'>
+      <div className=' mt-20 cards bg-[ghostwhite] p-4'>
         <Cards />
       </div>
 
-      <div className=' mt-20 bg-[ghostwhite] p-4 mb-32'>
+      <div className=' mt-20 bg-[ghostwhite] category p-4 pb-32'>
         <Category />
       </div>
 

@@ -4,7 +4,7 @@ import "./about.css"
 
 const AboutPage = () => {
   return (
-    <div className="bg-gray-100 p-4">
+    <div className="bg-gray-100 p-4 aboutus">
       <div className="container mx-auto flex p-8 gap-3 aboutus">
         {/* Left Content */}
         <div className="w-2/3">

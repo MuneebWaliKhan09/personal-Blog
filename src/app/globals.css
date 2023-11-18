@@ -8,9 +8,129 @@ padding: 0;
 box-sizing: border-box;
 font-family: ROBOTO;
 }
+
 body {
-/* background-color: rgb(242, 244, 245); */
-background-color: ghostwhite;
-}
+    color: #000;
+    background-color: ghostwhite;
+  }
+  
+  [data-theme="dark"] body {
+    background-color: rgb(31, 31, 31);
+    color: #ffffff;
+  }
+
+  [data-theme="dark"] .main {
+    background-color: rgba(46, 46, 46, 0.863);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 1.875rem;
+  }
+
+  [data-theme="dark"] .cards {
+    background-color: rgb(31, 31, 31);
+    color: #ffffff;
+  }
+
+  [data-theme="dark"] .cardsbody h3 {
+    color: #ffffff;
+  }
+  [data-theme="dark"] .cardsbody p {
+    color: #ffffffc7;
+  }
+  [data-theme="dark"] .cardsbody>button:hover {
+    color: white;
+  }
+  [data-theme="dark"] .category {
+    background-color: rgb(31, 31, 31);
+    color: white;
+  }
+  [data-theme="dark"] .column1 {
+    background-color: rgb(31, 31, 31);
+    color: white;
+  }
+  [data-theme="dark"] .column1 .blogs:hover {
+    background-color: unset;
+  }
+  [data-theme="dark"] .column1 .blogs h3 {
+    color: rgba(255, 255, 255, 0.938);
+  }
+  [data-theme="dark"] .column1 .blogs a {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  [data-theme="dark"] .column2 {
+      background-color: rgb(31, 31, 31);
+    color: white;
+  }
+  [data-theme="dark"] .column2 h4 {
+      background-color: rgb(31, 31, 31);
+    color: white;
+  }
+  [data-theme="dark"] .column2 .cat {
+      background-color: rgb(31, 31, 31);
+    color: white;
+  }
+  [data-theme="dark"] .column2 .cat .tech h3:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.705);
+  }
+
+  [data-theme="dark"] .tech {
+    background-color: rgba(59, 59, 59, 0.719);
+    color: white;
+  }
+  [data-theme="dark"] .tech p {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  [data-theme="dark"] .main h1 {
+    color: #ffffff;
+  }
+  
+  [data-theme="dark"] .main p {
+    color: #ffffffb9;
+  }
+  
+  [data-theme="dark"] .nav {
+    background-color: rgb(46, 46, 46);
+    color: #ffffff;
+  }
+  [data-theme="dark"] footer>div {
+    background-color: rgb(46, 46, 46);
+    color: #ffffff;
+  }
+
+
+  [data-theme="dark"] .blog {
+    background-color: unset;
+    gap: 50px;
+  }
+
+
+  [data-theme="dark"] .blog h3 {
+    color: #ffffff;
+  }
+
+  [data-theme="dark"] .blog ul h4 {
+    color: #ffffffd8;
+  }
+
+
+  [data-theme="dark"] .blog ul p {
+    color: #ffffffdc;
+  }
+
+  [data-theme="dark"] .aboutus  {
+    background-color: rgba(46, 46, 46, 0.514);
+  }
+
+  [data-theme="dark"] .aboutus h1 {
+    color: #ffffff;
+  }
+
+  [data-theme="dark"] .aboutus p {
+    color: #ffffff;
+  }
 
 
