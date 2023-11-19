@@ -48,17 +48,13 @@ const Navbar = () => {
                     </div>
                     {
                         toggle && (
-                            <div className=' flex w-40 absolute  top-[2.50rem] rounded-r-[5px] rounded-b-[6%] rounded-[6%] right-[0.9rem] py-4 pb-6 pr-3 text-gray-900 border border-gray-400 bg-[#ececff] flex-col items-end gap-6'>
+                            <div className=' flex w-40 absolute  top-[2.50rem] rounded-r-[5px] rounded-b-[6%] rounded-[6%] right-[0.9rem] py-4 pb-6 pr-3 text-gray-900 border border-gray-400 bg-[#ececff] flex-col items-end gap-5'>
                                 <p > <Link className='py-2 px-2 pl-20  rounded-full bg-white ' href='/'>Home</Link></p>
                                 <p > <Link className='py-2 px-2 pl-20 rounded-full bg-white ' href='/about'>About</Link></p>
-                                <p>
-                                    <Providers>
-                                        <ThemeSwitcher />
-                                    </Providers>
-                                </p>
+
                                 {
                                     isLoged ? (
-                                        <Link className='rounded-full bg-white ' href='/profile'>
+                                        <Link className='py-2 px-2 pl-20  rounded-full bg-white' href='/profile'>
                                             profile
                                         </Link>
 
@@ -67,6 +63,12 @@ const Navbar = () => {
                                         <p > <Link className='py-2 px-2 pl-20 rounded-full bg-white ' href='/login'>Login</Link></p>
                                     )
                                 }
+                                <p className=' flex items-center gap-2 py-2 px-2 pl-6 rounded-full bg-white'>
+                                    <Providers>
+                                        <ThemeSwitcher />
+                                    </Providers>
+                                    <span>dark</span>
+                                </p>
                             </div>
                         )
                     }
