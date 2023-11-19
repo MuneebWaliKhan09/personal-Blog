@@ -4,12 +4,15 @@
         flex-direction: column;
         padding: 0px;
         padding-left: 15px;
-        padding-top: 50px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        padding-top: 60px;
         align-items: center;
         justify-content: center;
         margin-left: 0px ;
-        margin-right: 6px;
-        border-radius: none;
+        margin-right: 0px;
+        margin-top: 0rem;
+        border-radius: 0px;
     }
 
     .innermain {

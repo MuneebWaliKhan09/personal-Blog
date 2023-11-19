@@ -22,8 +22,6 @@ body {
   [data-theme="dark"] .main {
     background-color: rgba(46, 46, 46, 0.863);
     color: #ffffff;
-    border-radius: 20px;
-    padding: 1.875rem;
   }
 
   [data-theme="dark"] .cards {
