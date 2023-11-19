@@ -28,11 +28,15 @@ const Navbar = () => {
                     </p>
                     {
                         isLoged ? (
-                            <div className=' py-1 px-2 flex items-center justify-center cursor-pointer   text-xl  rounded-full bg-blue-600 text-white'>
-                                <Link className=' font-normal text-white' href='/profile'>
-                                    M
-                                </Link>
-                            </div>
+                            <>
+                                <p> <Link className='font-semibold' href='/create'>Create</Link></p>
+
+                                <div className=' py-1 px-2 flex items-center justify-center cursor-pointer   text-xl  rounded-full bg-blue-600 text-white'>
+                                    <Link className=' font-normal text-white' href='/profile'>
+                                        M
+                                    </Link>
+                                </div>
+                            </>
                         ) : (
 
                             <p> <Link className='font-semibold' href='/login'>Login</Link></p>
@@ -54,9 +58,14 @@ const Navbar = () => {
 
                                 {
                                     isLoged ? (
-                                        <Link className='py-2 px-2 pl-20  rounded-full bg-white' href='/profile'>
-                                            profile
-                                        </Link>
+                                        <>
+                                            <Link className='py-2 px-2 pl-20  rounded-full bg-white' href='/profile'>
+                                                profile
+                                            </Link>
+                                            <Link className='py-2 px-2 pl-20  rounded-full bg-white' href='/create'>
+                                                Create
+                                            </Link>
+                                        </>
 
                                     ) : (
 
