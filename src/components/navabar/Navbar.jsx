@@ -6,7 +6,7 @@ import ThemeSwitcher from '@/app/ThemeSwitcher'
 import Providers from '../../app/providers'
 
 const Navbar = () => {
-    const isLoged = true
+    const isLoged = false
     const [toggle, setToggle] = useState(false)
 
 
