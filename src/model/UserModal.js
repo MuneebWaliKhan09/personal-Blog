@@ -13,6 +13,11 @@ const UserSchema = mongoose.Schema({
         required: [true, "please add password"]
     },
 
+    role: {
+        type: String,
+        default: "user"
+    },
+
     createdAt:{
         type: Date,
         default: Date.now()
@@ -22,7 +27,7 @@ const UserSchema = mongoose.Schema({
 
 
 
-const User = mongoose.models.personalblog || mongoose.model("personalblog", UserSchema)
+const User = mongoose.models.userblog || mongoose.model("userblog", UserSchema)
 
 
 export default User

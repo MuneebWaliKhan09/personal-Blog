@@ -3,7 +3,6 @@ import './globals.css'
 import Navbar from '@/components/navabar/Navbar'
 import Footer from '@/components/footer/Footer'
 import Providers from './providers'
-import AuthProvider from './context/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +27,6 @@ export default function RootLayout({ children }) {
 
       </head>
       <body className='h-full '>
-        <AuthProvider>
           <div className='top-0 sticky z-[1000]'>
             <Navbar />
           </div>
@@ -40,7 +38,6 @@ export default function RootLayout({ children }) {
           <div className='bg-gray-100'>
             <Footer />
           </div>
-        </AuthProvider>
       </body>
     </html>
   )
