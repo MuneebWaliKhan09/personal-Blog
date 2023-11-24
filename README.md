@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![Dashboard Thumbnail]([https://github.com/MuneebWaliKhan09/student-portal-dashboard/blob/main/public/student-portal.png?raw=true](https://github.com/MuneebWaliKhan09/personal-Blog/blob/main/public/screenshot_11_24_2023_1-42-44%20PM.png?raw=true))
+![Dashboard Thumbnail]([https://github.com/MuneebWaliKhan09/student-portal-dashboard/blob/main/public/student-portal.png?raw=true](https://github.com/MuneebWaliKhan09/personal-Blog/blob/main/public/screenshot_11_24_2023_1-42-44%20PM.png?raw=true]))
 
 
 ## Getting Started
