@@ -1,6 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![Dashboard Thumbnail]([]))
+## LIGHT MODE
+![Blog Thumbnail](https://github.com/MuneebWaliKhan09/personal-Blog/blob/main/public/ss2.png?raw=true))
+
+
+
+## DARK MODE
+![Blog Thumbnail](https://github.com/MuneebWaliKhan09/personal-Blog/blob/main/public/ss1.png?raw=true))
 
 
 ## Getting Started
