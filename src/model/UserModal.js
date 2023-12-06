@@ -25,8 +25,8 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please provide password'],
         minlength: 4,
-        select: false
     },
+
 
     role: {
         type: String,

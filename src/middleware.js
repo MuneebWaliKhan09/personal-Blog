@@ -1,5 +1,22 @@
+// export { default } from "next-auth/middleware";
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
 
-// Applies next-auth only to matching routes - can be regex
-// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-export const config = { matcher: ["/create", "/profile"] }
+
+export default withAuth(
+    function middleware(req) {
+        console.log(req.nextUrl.pathname);
+        console.log(req.nextauth.token.role);
+        if(req.nextauth.token.role != "admin" && req.nextUrl.pathname.startsWith("/create")){
+            return NextResponse.rewrite(new URL("/denied", req.url))
+        }
+    },
+    {
+        callbacks: {
+            authorized: ({ token }) => !!token,
+        }
+    }
+)
+
+export const config = { matcher: ['/blog/:path*','/profile', '/create'] }

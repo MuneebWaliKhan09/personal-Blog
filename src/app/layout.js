@@ -3,6 +3,8 @@ import './globals.css'
 import Navbar from '@/components/navabar/Navbar'
 import Footer from '@/components/footer/Footer'
 import Providers from './providers'
+import AuthProvider from './context/AuthProvider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +13,7 @@ export const metadata = {
   description: 'This is a blogging site for Muneeb',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
 
 
   return (
@@ -26,7 +28,9 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
       </head>
-      <body className='h-full '>
+      <AuthProvider>
+
+        <body className='h-full '>
           <div className='top-0 sticky z-[1000]'>
             <Navbar />
           </div>
@@ -38,7 +42,8 @@ export default function RootLayout({ children }) {
           <div className='bg-gray-100'>
             <Footer />
           </div>
-      </body>
+        </body>
+      </AuthProvider>
     </html>
   )
 }

@@ -8,12 +8,19 @@ const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
+
+    setMounted(true)
+
   }, []);
 
+
+setTimeout(() => {
+  
   if (!mounted) {
     return null;
   }
+}, 10);
+
 
   const setMode = () => {
     if (theme === "light") {
@@ -24,11 +31,12 @@ const ThemeSwitcher = () => {
 
   }
 
+
   return (
     <>
-      <label class="switch">
-        <input type="checkbox" onChange={setMode} checked={theme === "dark"}/>
-        <span class="slider round"></span>
+      <label className="switch">
+        <input type="checkbox" onChange={setMode} checked={theme === "dark"} />
+        <span className="slider round"></span>
       </label>
     </>
   );

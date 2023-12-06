@@ -4,7 +4,7 @@ import Category from '@/components/categories/Category'
 
 
 
-const HomePage = ({ children }) => {
+const HomePage = () => {
 
 
 
