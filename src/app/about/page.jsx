@@ -1,6 +1,5 @@
 import React from 'react';
-import "./about.css"
-
+import "./about.css";
 
 const AboutPage = () => {
   return (
@@ -10,12 +9,12 @@ const AboutPage = () => {
         <div className="w-2/3">
           <h1 className="text-4xl blogname font-bold mb-4 text-gray-800">BLOG {'{ MUNEEB }'}</h1>
           <p className="text-gray-600 mb-4">
-            Welcome to our blog! We are passionate about [your blog topic or niche]. Our goal is to [briefly describe the purpose or mission of your blog]. 
-            Whether you're [target audience], we strive to provide valuable and engaging content for everyone.
+            Welcome to our blog! We are passionate about technology and innovation. Our goal is to share the latest trends and insights in the tech world. 
+            Whether you're a tech enthusiast, developer, or just curious about emerging technologies, we strive to provide valuable and engaging content for everyone.
           </p>
           <p className="text-gray-600 mb-4">
-            At [your blog name], we believe in [core belief or value]. Our team is dedicated to [something unique about your blog or team]. 
-            Explore our blog to discover [types of content you offer] and stay updated on the latest [industry/news related to your blog].
+            At Tech Insights, we believe in the power of knowledge. Our team is dedicated to exploring cutting-edge technologies and providing in-depth analysis. 
+            Explore our blog to discover articles on programming, artificial intelligence, and stay updated on the latest tech news.
           </p>
           <p className="text-gray-600 mb-4">
             Thank you for being a part of our community. If you have any questions or suggestions, feel free to 

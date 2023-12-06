@@ -3,23 +3,36 @@ import React, { useEffect, useState } from 'react'
 import "./cat.css"
 import Image from 'next/image'
 import Link from 'next/link'
-import data from '@/api'
+// import data from '@/api'
+import axios from "axios"
 
 const Category = () => {
 
     const categories = [
+        'All',
         'Tech',
-        'Intertainment',
+        'Entertainment',
         'Political',
         'Drama',
-        'Bollywood',
-        'Movies',
-        'All',
     ]
 
     // console.log(categories);
     const [filt, setFilt] = useState([])
+    const [data, Setdata] = useState([])
 
+    const blogsdata = async () => {
+        const blog = await axios.get("/api/blog")
+            .then((res) => {
+                Setdata(res.data.data)
+                console.log(res.data.data);
+            }).catch((err) => {
+                console.log(err.response.data);
+            })
+    }
+
+    useEffect(() => {
+        blogsdata()
+    }, [])
 
     const handleCategory = (e) => {
         let a = data.filter((val) => {
@@ -42,13 +55,11 @@ const Category = () => {
             {
                 <div className='flex items-center'>
                     <div className='flex categories items-center justify-center gap-12 px-4 p-2'>
-                        <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[6]}</h4>
                         <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[0]}</h4>
                         <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[1]}</h4>
                         <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[2]}</h4>
                         <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[3]}</h4>
                         <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[4]}</h4>
-                        <h4 onClick={handleCategoryClick} className=' py-1 px-5 rounded-lg  bg-gray-200 hover:bg-gray-500 hover:transition transition-all  text-gray-600 hover:text-white   font-medium cursor-pointer'>{categories[5]}</h4>
                     </div>
 
                     <div className='smallcat'>
@@ -76,7 +87,7 @@ const Category = () => {
                                     <Image src='/c.jpg' alt={d.title} width={80} height={80} quality={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
-                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d.title}/${d.id}`}>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</Link></p>
+                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine && `${d.tagLine.slice(0, 100)} ${d.tagLine.length > 100 ? "...." : ''}`}</Link></p>
                                     </div>
                                 </div>
                             ))
@@ -86,7 +97,7 @@ const Category = () => {
                                     <Image src='/c.jpg' alt={d.title} width={80} height={80} quality={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
-                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d.title}/${d.id}`}>{d.title.slice(0, 70)}....</Link></p>
+                                        <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine.slice(0, 100)}....</Link></p>
                                     </div>
                                 </div>
                             ))
@@ -107,18 +118,18 @@ const Category = () => {
                                 filt.map((d) => (
                                     <div className="tech bg-gray-100">
                                         <p className='font-bold text-gray-600'>{d.category}</p>
-                                        <h3>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</h3>
+                                        <h3 className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine && `${d.tagLine.slice(0, 100)} ${d.tagLine.length > 100 ? "...." : ''}`}</Link></h3>
                                         <div className="trendingLine"></div>
                                         <br />
                                     </div>
                                 ))
                             ) : (
-                                data && data.filter((val)=>{
-                                    return val.category === "Tech" || val.category === "Intertainment"
+                                data && data.filter((val) => {
+                                    return val.category === "Tech" || val.category === "Entertainment" || val.category === "Drama"
                                 }).map((d) => (
                                     <div className="tech bg-gray-100">
                                         <p className='font-bold text-gray-600'>{d.category}</p>
-                                        <h3>{d.title && `${d.title.slice(0, 70)} ${d.title.length > 70 ? "...." : ''}`}</h3>
+                                        <h3 className=' underline text-[#21219dbf] cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine && `${d.tagLine.slice(0, 70)} ${d.tagLine.length > 70 ? "...." : ''}`}</Link></h3>
                                         <div className="trendingLine"></div>
                                     </div>
 
