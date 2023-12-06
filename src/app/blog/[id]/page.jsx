@@ -15,7 +15,7 @@ const blogdata = async (id) => {
 const page = async ({ params }) => {
   const d = await blogdata(params.id)
 
-
+console.log(d);
 
   return (
     <>
@@ -31,7 +31,7 @@ const page = async ({ params }) => {
               </ul>
             ))}
           </div>
-          <Image src={d?.images && d.images[0] && d.images[0].url} alt="" className='px-4 object-contain' width={400} height={400} />
+          <Image src={d?.images && d.images[0].url} alt="" className='px-4 object-contain' width={400} height={400} />
       </div>
     </>
 

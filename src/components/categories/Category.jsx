@@ -84,7 +84,7 @@ const Category = () => {
                         filt && filt.length > 0 ? (
                             filt.map((d) => (
                                 <div className='flex items-center p-2 gap-2 blogs border border-gray-400 rounded-md'>
-                                    <Image src='/c.jpg' alt={d.title} width={80} height={80} quality={80} />
+                                    <Image  src={d?.images && d.images[0].url} alt={d.title} width={80} height={80} quality={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
                                         <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine && `${d.tagLine.slice(0, 100)} ${d.tagLine.length > 100 ? "...." : ''}`}</Link></p>
@@ -94,7 +94,7 @@ const Category = () => {
                         ) : (
                             data && data.map((d) => (
                                 <div className='flex items-center p-2 gap-2 blogs border border-gray-400 rounded-md hover:bg-gray-100 '>
-                                    <Image src='/c.jpg' alt={d.title} width={80} height={80} quality={80} />
+                                    <Image  src={d?.images && d.images[0].url} alt={d.title} width={80} height={80} quality={80} />
                                     <div className='flex flex-col '>
                                         <h3 className=' font-bold text-[#3939a9de]'>{d.category}</h3>
                                         <p className=' underline text-[#21219dbf] hover:text-blue-600 cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine.slice(0, 100)}....</Link></p>
