@@ -3,12 +3,19 @@
 @media only screen and (max-width: 768px) {
     .aboutus{
         flex-direction: column;
+       
+    }
+    .bloginner{
+        width: 98.666667%!important;
+    }
+    .bloginnerimg{
+        width: 100%!important;
     }
     .blogname{
         font-size: 6vw;
     }
     .aboutimg{
-       max-width: 200% !important;
+       max-width: 100% !important;
     }
     
 }

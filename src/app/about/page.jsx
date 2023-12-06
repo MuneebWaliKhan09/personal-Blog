@@ -1,12 +1,13 @@
 import React from 'react';
 import "./about.css";
+import Image from 'next/image';
 
 const AboutPage = () => {
   return (
     <div className="bg-gray-100 p-4 aboutus">
-      <div className="container mx-auto flex p-8 gap-3 aboutus">
+      <div className="container mx-auto justify-between flex p-8 gap-3 aboutus">
         {/* Left Content */}
-        <div className="w-2/3">
+        <div className="w-2/3 text-justify bloginner">
           <h1 className="text-4xl blogname font-bold mb-4 text-gray-800">BLOG {'{ MUNEEB }'}</h1>
           <p className="text-gray-600 mb-4">
             Welcome to our blog! We are passionate about technology and innovation. Our goal is to share the latest trends and insights in the tech world. 
@@ -23,8 +24,8 @@ const AboutPage = () => {
         </div>
         
         {/* Right Content */}
-        <div className="w-1/3">
-          <img src="/p.jpg" alt="Blog Image" className="w-700 h-700 object-cover aboutimg" />
+        <div className="w-1/3 bloginnerimg px-4">
+          <Image src="/about.jpg" width={700} height={700} alt="Blog Image" className="w-700 h-700 object-cover aboutimg" />
         </div>
       </div>
     </div>

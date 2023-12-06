@@ -8,7 +8,7 @@ export default withAuth(
     function middleware(req) {
         console.log(req.nextUrl.pathname);
         console.log(req.nextauth.token.role);
-        if(req.nextauth.token.role != "admin" && req.nextUrl.pathname.startsWith("/create")){
+        if(req.nextauth.token.role != "admin" && req.nextUrl.pathname.startsWith("/create") || req.nextUrl.pathname.startsWith("/api/user") ){
             return NextResponse.rewrite(new URL("/denied", req.url))
         }
     },
@@ -19,4 +19,4 @@ export default withAuth(
     }
 )
 
-export const config = { matcher: ['/blog/:path*','/profile', '/create'] }
+export const config = { matcher: ['/blog/:path*','/profile', '/create', '/api/user'] }
