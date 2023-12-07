@@ -10,7 +10,7 @@ font-family: ROBOTO;
 }
 
 img{
-  height: fit-content;
+  height: revert-layer;
 }
 
 body {
