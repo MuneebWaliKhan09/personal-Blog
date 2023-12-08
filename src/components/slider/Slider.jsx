@@ -15,7 +15,7 @@ const Slider = () => {
       .get("/api/blog")
       .then((res) => {
         Setdata(res.data.data);
-        revalidatePath(`/blog`);
+        revalidatePath(`/api/blog`);
       })
       .catch((err) => {
         console.log(err.response.data);
