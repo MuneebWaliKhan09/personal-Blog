@@ -13,7 +13,7 @@ const Slider = () => {
 
   const blogsdata = async () => {
     const blog = await axios
-      .get(`${process.env.PROD}/api/blog`)
+      .get("/api/blog")
       .then((res) => {
         Setdata(res.data.data);
         console.log(res.data.data);
@@ -26,7 +26,7 @@ const Slider = () => {
   const deletefunc = async (id)=>{
     const confirm = window.confirm("Are you sure you want to delete this blog ?");
     if(confirm){
-      const blog = await axios.delete(`${process.env.PROD}/api/blog/${id}`)
+      const blog = await axios.delete(`/api/blog/${id}`)
       .then((res) => {
         alert(JSON.stringify(res.data.msg));
         revalidatePath("/create");
@@ -104,7 +104,7 @@ const Slider = () => {
                         <button className="py-1 px-5 bg-red-500 text-white rounded-lg" onClick={()=> deletefunc(d._id)}>Delete</button>
                       </div>
                       <button className=" bg-gray-600 justify-items-end  hover:bg-gray-500 hover:transition transition-all  text-white font-bold py-2 px-4 rounded-full ">
-                        <Link href={`${process.env.PROD}/blog/${d._id}`}>See more</Link>
+                        <Link href={`/blog/${d._id}`}>See more</Link>
                       </button>
                     </div>
                   </div>

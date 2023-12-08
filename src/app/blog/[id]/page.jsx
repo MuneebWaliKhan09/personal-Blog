@@ -4,7 +4,7 @@ import axios from "axios"
 
 const blogdata = async (id) => {
   try {
-    const getdata = await axios.get(`${process.env.PROD}/api/blog/${id}`);
+    const getdata = await axios.get(`/api/blog/${id}`);
     return getdata.data;
   } catch (error) {
     console.error('Error fetching blog data:', error);
