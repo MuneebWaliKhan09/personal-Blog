@@ -17,7 +17,6 @@ const Cards = () => {
         const blog = await axios.get("/api/blog")
             .then((res) => {
                 Setdata(res.data.data)
-                revalidatePath('/')
             }).catch((err) => {
                 console.log(err.response.data);
             })
@@ -25,6 +24,8 @@ const Cards = () => {
 
     const handleNav = (id) => {
         router.push(`/blog/${id}`)
+        revalidatePath(`/blog/${id}`)
+
     }
 
     useEffect(() => {
