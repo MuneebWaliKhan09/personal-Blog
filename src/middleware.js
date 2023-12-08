@@ -24,4 +24,4 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ['/blog/:path*', '/profile', '/create', '/api/user', '/api/blog/create'] };
+export const config = { matcher: ['/blog/:id', '/profile', '/create', '/api/user', '/api/blog/create'] };
