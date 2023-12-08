@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import "../cards/cards.css";
 import axios from "axios";
 import Image from "next/image";
+import { revalidatePath } from "next/cache";
+export const dynamic = "dynamic-force";
+
 const Slider = () => {
   const [data, Setdata] = useState([]);
 
@@ -19,6 +22,21 @@ const Slider = () => {
         console.log(err.response.data);
       });
   };
+
+  const deletefunc = async (id)=>{
+    const confirm = window.confirm("Are you sure you want to delete this blog ?");
+    if(confirm){
+      const blog = await axios.delete(`/api/blog/${id}`)
+      .then((res) => {
+        alert(JSON.stringify(res.data.msg));
+        revalidatePath("/create");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    };
+
+  }
 
   useEffect(() => {
     blogsdata();
@@ -79,8 +97,12 @@ const Slider = () => {
                           `${d.tagLine.slice(0, 50)} ${
                             d.tagLine.length > 57 ? "...." : ""
                           }`}
-                        .
+                        
                       </p>
+                      <div className="flex items-center justify-between my-3">
+                        <Link href={`/update/${d._id}`}><button className="py-1 px-5 bg-yellow-500 text-white rounded-lg">Update</button></Link>
+                        <button className="py-1 px-5 bg-red-500 text-white rounded-lg" onClick={()=> deletefunc(d._id)}>Delete</button>
+                      </div>
                       <button className=" bg-gray-600 justify-items-end  hover:bg-gray-500 hover:transition transition-all  text-white font-bold py-2 px-4 rounded-full ">
                         <Link href={`/blog/${d._id}`}>See more</Link>
                       </button>

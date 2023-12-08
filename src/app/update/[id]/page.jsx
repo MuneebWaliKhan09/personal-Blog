@@ -1,10 +1,12 @@
 "use client";
-import Slider from "@/components/slider/Slider";
 import axios from "axios";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-const Create = () => {
+const update = ({ params }) => {
+  const router = useRouter();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [tagLine, setTagLine] = useState("");
@@ -12,6 +14,22 @@ const Create = () => {
   const [descStart, setDescStart] = useState("");
   const [descMid, setDescMid] = useState("");
   const [descEnd, setDescEnd] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`/api/blog/${params.id}`)
+      .then((res) => {
+        setTitle(res.data.title);
+        setCategory(res.data.category);
+        setTagLine(res.data.tagLine);
+        setDescStart(res.data.desc[0].start);
+        setDescMid(res.data.desc[0].mid);
+        setDescEnd(res.data.desc[0].end);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, [params.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,14 +44,14 @@ const Create = () => {
 
     try {
       const response = await axios
-        .post("/api/blog/create", formData)
+        .put(`/api/blog/${params.id}`, formData)
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
+          router.push("/create");
         })
         .catch((err) => {
           alert(err.response.data.err);
         });
-
     } catch (error) {
       console.error("Error submitting form:", error.response.data);
     }
@@ -41,7 +59,7 @@ const Create = () => {
 
   return (
     <div className="container mx-auto my-12 p-8 bg-white adminblog shadow-md rounded-md">
-      <h1 className="text-3xl font-bold mb-12 mt-10">Create a New Blog Post</h1>
+      <h1 className="text-3xl font-bold mb-12 mt-10">Update a Blog Post</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         {/* Title */}
         <div className="mb-4">
@@ -167,12 +185,8 @@ const Create = () => {
           Create Blog Post
         </button>
       </form>
-      {/* carosule of blog cards */}
-      <div className="">
-        <Slider />
-      </div>
     </div>
   );
 };
 
-export default Create;
+export default update;
