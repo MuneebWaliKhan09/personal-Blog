@@ -12,7 +12,7 @@ const Cards = () => {
 
 
     const blogsdata = async () => {
-        const blog = await axios.get("/api/blog")
+        const blog = await axios.get(`${process.env.PROD}/api/blog`)
             .then((res) => {
                 Setdata(res.data.data)
                 console.log(res.data.data);

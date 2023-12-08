@@ -44,7 +44,7 @@ const update = ({ params }) => {
 
     try {
       const response = await axios
-        .put(`/api/blog/${params.id}`, formData)
+        .put(`${process.env.PROD}/api/blog/${params.id}`, formData)
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
           router.push("/create");

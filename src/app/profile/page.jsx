@@ -6,7 +6,7 @@ const profile = async () => {
   const session = await getServerSession(options);
 
   if (!session) {
-    redirect("/api/auth/signin?callbackUrl=/Member");
+    redirect(`${process.env.PROD}/api/auth/signin?callbackUrl=/profile`);
   }
 
   return (

@@ -26,7 +26,7 @@ const Create = () => {
 
     try {
       const response = await axios
-        .post("/api/blog/create", formData)
+        .post(`${process.env.PROD}/api/blog/create`, formData)
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
         })
