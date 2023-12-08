@@ -4,7 +4,7 @@ const nextConfig = {
         domains:['avatars.githubusercontent.com','lh3.googleusercontent.com','source.unsplash.com','res.cloudinary.com']
     },
     serverRuntimeConfig:{
-        cacheRevalidation: false,
+        caches: false,
     },
     experimental:{
         isr: true
