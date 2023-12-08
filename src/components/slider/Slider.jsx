@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "../cards/cards.css";
 import axios from "axios";
 import Image from "next/image";
+import { revalidatePath } from "next/cache";
 
 const Slider = () => {
   const [data, Setdata] = useState([]);
@@ -27,9 +28,10 @@ const Slider = () => {
       const blog = await axios.delete(`/api/blog/${id}`)
       .then((res) => {
         const filter = data && data.filter((d) => d._id !== id);
-        if(filter){
-          alert(JSON.stringify(res.data.msg));
-        }
+        Setdata(filter);
+        revalidatePath(`/blog/${id}`); // Add this line to revalidate the deleted blog path
+        alert(JSON.stringify(res.data.msg));
+
       })
       .catch((err) => {
         console.log(err);
