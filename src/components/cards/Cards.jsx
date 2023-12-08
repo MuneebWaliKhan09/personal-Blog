@@ -4,6 +4,7 @@ import "./cards.css"
 import { useRouter } from 'next/navigation'
 import Image  from "next/image"
 import axios from "axios"
+import { revalidatePath } from 'next/cache'
 
 const Cards = () => {
     const router = useRouter()
@@ -16,7 +17,7 @@ const Cards = () => {
         const blog = await axios.get("/api/blog")
             .then((res) => {
                 Setdata(res.data.data)
-                console.log(res.data.data);
+                revalidatePath('/blog')
             }).catch((err) => {
                 console.log(err.response.data);
             })
