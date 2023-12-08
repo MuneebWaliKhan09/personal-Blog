@@ -108,8 +108,8 @@ const Category = () => {
                 </div>
 
                 <div className=' w-[50%] mt-9 column2 '>
-                    <h4 className='font-semibold text-3xl p-2 mb-4 text-center text-gray-500 '>Trending</h4>
-                    <div className='bg-gray-50 w-full cat flex flex-col gap-6'>
+                    <h4 className='font-semibold text-3xl p-2 mb-4 text-center text-gray-500  '>Trending</h4>
+                    <div className='bg-gray-50 w-full cat flex flex-col gap-6 overflow-y-scroll'>
 
 
                         {
@@ -127,7 +127,7 @@ const Category = () => {
                                 data && data.filter((val) => {
                                     return val.category === "Tech" || val.category === "Entertainment" || val.category === "Drama"
                                 }).map((d) => (
-                                    <div className="tech bg-gray-100">
+                                    <div className="tech bg-gray-100 ">
                                         <p className='font-bold text-gray-600'>{d.category}</p>
                                         <h3 className=' underline text-[#21219dbf] cursor-pointer'><Link href={`/blog/${d._id}`}>{d.tagLine && `${d.tagLine.slice(0, 70)} ${d.tagLine.length > 70 ? "...." : ''}`}</Link></h3>
                                         <div className="trendingLine"></div>
@@ -136,7 +136,6 @@ const Category = () => {
                                 ))
                             )
                         }
-
                     </div>
                 </div>
             </div>

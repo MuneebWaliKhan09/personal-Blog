@@ -60,8 +60,14 @@ export const options = {
                         const match = await bcrypt.compare(credentials.password, foundUser.password)
                         if (match) {
                             delete foundUser.password;
-                            foundUser['role'] = "Unverified Email";
-                            return foundUser;
+                            if(credentials.email === process.env.ADMIN){
+                                foundUser['role'] = "admin";
+                                return foundUser;
+                                
+                            }else{
+                                foundUser['role'] = "Unverified Email";
+                                return foundUser;
+                            }
                         }
                     }
 

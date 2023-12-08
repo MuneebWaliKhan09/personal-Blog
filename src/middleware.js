@@ -2,21 +2,25 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
-
-
 export default withAuth(
-    function middleware(req) {
-        console.log(req.nextUrl.pathname);
-        console.log(req.nextauth.token.role);
-        if(req.nextauth.token.role != "admin" && req.nextUrl.pathname.startsWith("/create") || req.nextUrl.pathname.startsWith("/api/user") ){
-            return NextResponse.rewrite(new URL("/denied", req.url))
-        }
-    },
-    {
-        callbacks: {
-            authorized: ({ token }) => !!token,
-        }
-    }
-)
+  function middleware(req) {
+    console.log(req.nextUrl.pathname);
+    console.log(req.nextauth.token.role);
 
-export const config = { matcher: ['/blog/:path*','/profile', '/create', '/api/user'] }
+    if (
+      req.nextauth.token.role !== "admin" &&
+      (req.nextUrl.pathname.startsWith("/create") ||
+        req.nextUrl.pathname.startsWith("/api/user") ||
+        req.nextUrl.pathname.startsWith("/api/blog/create"))
+    ) {
+      return NextResponse.rewrite(new URL("/denied", req.url));
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token,
+    },
+  }
+);
+
+export const config = { matcher: ['/blog/:path*', '/profile', '/create', '/api/user', '/api/blog/create'] };

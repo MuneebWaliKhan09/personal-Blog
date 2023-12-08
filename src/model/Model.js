@@ -20,7 +20,7 @@ const blogSchema = mongoose.Schema({
 
     images: [{
 
-        public_url: {
+        public_id: {
             type: String,
             required: true
         },
@@ -56,7 +56,7 @@ const blogSchema = mongoose.Schema({
 
 
 
-const Blog = mongoose.models.personalblog || mongoose.model("personalblog", blogSchema)
+const Blog = mongoose.models.personalblogs || mongoose.model("personalblogs", blogSchema)
 
 
 export default Blog

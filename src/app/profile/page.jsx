@@ -19,7 +19,6 @@ const profile = async () => {
             className="w-16 h-16 rounded-full mr-4"
           />
         )}
-        <h1 className="text-3xl font-bold">{session?.user?.name}</h1>
       </div>
       <div className="mb-4">
         <p className="text-lg">

@@ -20,7 +20,7 @@
     flex-direction: column;
     width: 83%;
     height: 85vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 
@@ -93,7 +93,9 @@
 }
 
 
-
+.cat{
+    height: 69vh;
+}
 
 
 

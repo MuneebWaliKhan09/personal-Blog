@@ -1,123 +1,162 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import Slider from "@/components/slider/Slider";
+import axios from "axios";
+import Image from "next/image";
+import React, { useState } from "react";
 
-const create = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    tagLine: '',
-    images: '',
-    desc: {
-      start: '',
-      mid: '',
-      end: ''
-    }
-  });
+const Create = () => {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [tagLine, setTagLine] = useState("");
+  const [images, setImages] = useState("");
+  const [descStart, setDescStart] = useState("");
+  const [descMid, setDescMid] = useState("");
+  const [descEnd, setDescEnd] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("tagLine", tagLine);
+    formData.append("start", descStart);
+    formData.append("mid", descMid);
+    formData.append("end", descEnd);
+    formData.append("images", images);
+
+    try {
+      const response = await axios
+        .post("/api/blog/create", formData)
+        .then((res) => {
+          console.log(JSON.stringify(res.data));
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+
+    } catch (error) {
+      console.error("Error submitting form:", error.response.data);
+    }
   };
 
   return (
-    <div className="container mx-auto my-8 p-8 bg-white shadow-md rounded-md">
-      <h1 className="text-3xl font-bold mb-4">Create a New Blog Post</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="container mx-auto my-12 p-8 bg-white adminblog shadow-md rounded-md">
+      <h1 className="text-3xl font-bold mb-12 mt-10">Create a New Blog Post</h1>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         {/* Title */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Title</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Title
+          </label>
           <input
             type="text"
             name="title"
-            value={formData.title}
-            onChange={handleChange}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter the title of your blog"
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
         </div>
 
-        {/* Category */}
+        {/* category */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Category</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Category
+          </label>
           <input
             type="text"
             name="category"
-            value={formData.category}
-            onChange={handleChange}
-            placeholder="Enter the category of your blog"
-            className="mt-1 p-2 border rounded-md w-full"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="Enter the title of your blog"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
         </div>
 
-        {/* Tag Line */}
+        {/* Tagline */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Tag Line</label>
+          <label className="block text-sm font-medium text-gray-600">
+            TagLine
+          </label>
           <input
             type="text"
             name="tagLine"
-            value={formData.tagLine}
-            onChange={handleChange}
-            placeholder="Enter a catchy tag line for your blog"
-            className="mt-1 p-2 border rounded-md w-full"
+            value={tagLine}
+            onChange={(e) => setTagLine(e.target.value)}
+            placeholder="Enter the title of your blog"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
         </div>
 
-        {/* Images */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Images</label>
-          <input
-            type="text"
-            name="images"
-            value={formData.images}
-            onChange={handleChange}
-            placeholder="Paste image URLs separated by commas"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
+        {/* ... (similar structure for other fields) */}
 
         {/* Description Start */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Description Start</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Description Start
+          </label>
           <textarea
-            name="desc.start"
-            value={formData.desc.start}
-            onChange={handleChange}
+            name="start"
+            value={descStart}
+            onChange={(e) => setDescStart(e.target.value)}
             placeholder="Write the beginning of your blog post here"
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
         </div>
 
         {/* Description Mid */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Description Mid</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Description Mid
+          </label>
           <textarea
-            name="desc.mid"
-            value={formData.desc.mid}
-            onChange={handleChange}
+            name="mid"
+            value={descMid}
+            onChange={(e) => setDescMid(e.target.value)}
             placeholder="Continue your blog post here"
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
         </div>
 
         {/* Description End */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Description End</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Description End
+          </label>
           <textarea
-            name="desc.end"
-            value={formData.desc.end}
-            onChange={handleChange}
+            name="end"
+            value={descEnd}
+            onChange={(e) => setDescEnd(e.target.value)}
             placeholder="Conclude your blog post here"
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full border-gray-500"
           />
+        </div>
+
+        {/* images */}
+        <div className="flex gap-4 items-center">
+          <div className="mb-4 w-10/12">
+            <label className="block text-sm font-medium text-gray-600">
+              Image
+            </label>
+            <input
+              name="images"
+              type="file"
+              onChange={(e) => setImages(e.target.files[0])}
+              placeholder="Write the beginning of your blog post here"
+              className="mt-1 p-2 border rounded-md w-full border-gray-500 imageinput"
+            />
+          </div>
+          <div>
+            {images && (
+              <Image
+                src={URL.createObjectURL(images)}
+                alt=""
+                height={50}
+                width={50}
+                className=" rounded-full"
+              />
+            )}
+          </div>
         </div>
 
         {/* Submit Button */}
@@ -128,8 +167,12 @@ const create = () => {
           Create Blog Post
         </button>
       </form>
+      {/* carosule of blog cards */}
+      <div className="">
+        <Slider />
+      </div>
     </div>
   );
 };
 
-export default create;
+export default Create;
