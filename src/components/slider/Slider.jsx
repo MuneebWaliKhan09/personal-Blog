@@ -26,7 +26,7 @@ const Slider = () => {
     if(confirm){
       const blog = await axios.delete(`/api/blog/${id}`)
       .then((res) => {
-        const filter = data.filter((d) => d.id !== id);
+        const filter = data.filter((d) => d._id !== id);
         if(filter){
           alert(JSON.stringify(res.data.msg));
         }
