@@ -10,8 +10,8 @@ export default withAuth(
     if (
       req.nextauth.token.role !== "admin" &&
       (req.nextUrl.pathname.startsWith("/create") ||
-        req.nextUrl.pathname.startsWith("/api/user") ||
-        req.nextUrl.pathname.startsWith("/api/blog/create")
+        req.nextUrl.pathname.startsWith("/api/user") 
+        // req.nextUrl.pathname.startsWith("/api/blog/create")
         )
     ) {
       return NextResponse.rewrite(new URL("/denied", req.url));
@@ -24,4 +24,4 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ['/blog/:id', '/profile', '/create', '/api/user', '/api/blog/create'] };
+export const config = { matcher: ['/blog/:path*', '/profile', '/create', '/api/user'] };
