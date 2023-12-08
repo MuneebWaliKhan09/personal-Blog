@@ -10,6 +10,13 @@ export const POST = async (req)=>{
 
     try {
         await ConnectDB()
+            
+        cloudinary.config({
+            cloud_name: process.env.cloud_name,
+            api_key: process.env.api_key,
+            api_secret: process.env.api_secret,
+        });
+    
         const data = await req.formData();
         const file = data.get("images")
         const title = data.get("title") 
@@ -22,13 +29,7 @@ export const POST = async (req)=>{
         if (!file) {
             return NextResponse.json({ message: "Please select a file", success: false })
         }
-    
-        cloudinary.config({
-            cloud_name: process.env.cloud_name,
-            api_key: process.env.api_key,
-            api_secret: process.env.api_secret,
-        });
-    
+
         const byteData = await file.arrayBuffer();
         const buffer = Buffer.from(byteData);
     
