@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import "../cards/cards.css";
 import axios from "axios";
 import Image from "next/image";
-import { revalidatePath } from "next/cache";
-export const dynamic = "dynamic-force";
 
 const Slider = () => {
   const [data, Setdata] = useState([]);
@@ -28,8 +26,10 @@ const Slider = () => {
     if(confirm){
       const blog = await axios.delete(`/api/blog/${id}`)
       .then((res) => {
-        alert(JSON.stringify(res.data.msg));
-        revalidatePath("/create");
+        const filter = data.filter((d) => d.id !== id);
+        if(filter){
+          alert(JSON.stringify(res.data.msg));
+        }
       })
       .catch((err) => {
         console.log(err);
