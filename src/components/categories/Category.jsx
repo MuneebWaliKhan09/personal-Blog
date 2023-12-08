@@ -25,7 +25,7 @@ const Category = () => {
         const blog = await axios.get("/api/blog")
             .then((res) => {
                 Setdata(res.data.data)
-                revalidatePath('/api/blog')
+                revalidatePath('/')
             }).catch((err) => {
                 console.log(err.response.data);
             })
