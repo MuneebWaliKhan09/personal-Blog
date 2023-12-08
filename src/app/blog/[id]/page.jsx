@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import "./blog.css"
 import axios from "axios"
