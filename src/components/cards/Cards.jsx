@@ -33,7 +33,7 @@ const Cards = () => {
 
     return (
         <>
-            <div className={`flex justify-center  flex-wrap gap-12  my-10 p-4 `}>
+            <div className={`flex justify-center  flex-wrap gap-12  my-10 p-4`}>
 
                 {
                     vissibleCards.map((d) => (
