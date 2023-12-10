@@ -53,6 +53,7 @@ const update = ({ params }) => {
         .catch((err) => {
           alert(err.response.data.err);
         });
+        revalidatePath(`/blog/${params.id}`);
     } catch (error) {
       console.error("Error submitting form:", error.response.data);
     }
