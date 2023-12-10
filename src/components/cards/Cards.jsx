@@ -63,7 +63,7 @@
 // }
 
 // export default Cards
-
+"use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
