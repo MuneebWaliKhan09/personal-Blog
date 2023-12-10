@@ -12,7 +12,7 @@ const Slider = () => {
 
   const blogsdata = async () => {
     const blog = await axios
-      .get("/api/blog",{ next: { revalidate: 30 } })
+      .get("/api/blog")
       .then((res) => {
         Setdata(res.data.data);
         console.log(res.data.data);
@@ -25,7 +25,7 @@ const Slider = () => {
   const deletefunc = async (id)=>{
     const confirm = window.confirm("Are you sure you want to delete this blog ?");
     if(confirm){
-      const blog = await axios.delete(`/api/blog/${id}`,{ next: { revalidate: 30 } })
+      const blog = await axios.delete(`/api/blog/${id}`)
       .then((res) => {
         const filter = data && data.filter((d) => d._id !== id);
         Setdata(filter);

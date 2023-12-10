@@ -45,7 +45,7 @@ const update = ({ params }) => {
 
     try {
       const response = await axios
-        .put(`/api/blog/${params.id}`, formData ,{ next: { revalidate: 30 } })
+        .put(`/api/blog/${params.id}`, formData)
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
           router.push("/create");

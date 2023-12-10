@@ -21,7 +21,7 @@ const Category = () => {
     const [data, Setdata] = useState([])
 
     const blogsdata = async () => {
-        const blog = await axios.get("/api/blog",{ next: { revalidate: 30 } })
+        const blog = await axios.get("/api/blog")
             .then((res) => {
                 Setdata(res.data.data)
                 console.log(res.data.data);
