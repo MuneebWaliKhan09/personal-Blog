@@ -72,7 +72,7 @@ import axios from 'axios';
 const Cards = ({ data }) => {
   const router = useRouter();
   const [showMore, setShowMore] = useState(false);
-  const visibleCards = showMore ? data : data.slice(0, 4);
+  const visibleCards = showMore ? data && data : data && data.slice(0, 4);
 
   const handleNav = (id) => {
     router.push(`/blog/${id}`);
@@ -81,7 +81,7 @@ const Cards = ({ data }) => {
   return (
     <>
       <div className={`flex justify-center flex-wrap gap-12 my-10 p-4`}>
-        {visibleCards.map((d) => (
+        {visibleCards && visibleCards.map((d) => (
           <div
             key={d._id}
             className="flex cardsbody overflow-hidden gap-4 flex-col justify-center w-full max-w-[251px] mb-4 pb-1 border border-solid border-2 shadow-2xl border-grey-600 rounded-xl"
