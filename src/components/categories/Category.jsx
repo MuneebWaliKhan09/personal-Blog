@@ -24,7 +24,6 @@ const Category = () => {
         const blog = await axios.get("/api/blog")
             .then((res) => {
                 Setdata(res.data.data)
-                console.log(res.data.data);
             }).catch((err) => {
                 console.log(err.response.data);
             })
