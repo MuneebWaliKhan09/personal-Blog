@@ -4,7 +4,6 @@ import "./cards.css"
 import { useRouter } from 'next/navigation'
 import Image  from "next/image"
 import axios from "axios"
-import { revalidatePath } from 'next/cache'
 
 const Cards = () => {
     const router = useRouter()
@@ -14,9 +13,10 @@ const Cards = () => {
 
 
     const blogsdata = async () => {
-        const blog = await axios.get("/api/blog")
+        const blog = await axios.get("/api/blog", { next: { revalidate: 30 } })
             .then((res) => {
                 Setdata(res.data.data)
+                console.log(res.data.data);
             }).catch((err) => {
                 console.log(err.response.data);
             })
@@ -24,8 +24,6 @@ const Cards = () => {
 
     const handleNav = (id) => {
         router.push(`/blog/${id}`)
-        revalidatePath(`/blog/${id}`)
-
     }
 
     useEffect(() => {

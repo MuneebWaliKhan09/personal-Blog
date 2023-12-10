@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 // import data from '@/api'
 import axios from "axios"
-import { revalidatePath } from 'next/cache'
 
 const Category = () => {
 
@@ -22,10 +21,10 @@ const Category = () => {
     const [data, Setdata] = useState([])
 
     const blogsdata = async () => {
-        const blog = await axios.get("/api/blog")
+        const blog = await axios.get("/api/blog",{ next: { revalidate: 30 } })
             .then((res) => {
                 Setdata(res.data.data)
-                revalidatePath('/')
+                console.log(res.data.data);
             }).catch((err) => {
                 console.log(err.response.data);
             })

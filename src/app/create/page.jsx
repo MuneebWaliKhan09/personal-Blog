@@ -26,7 +26,7 @@ const Create = () => {
 
     try {
       const response = await axios
-        .post("/api/blog/create", formData)
+        .post("/api/blog/create", formData,{ next: { revalidate: 30 } })
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
         })

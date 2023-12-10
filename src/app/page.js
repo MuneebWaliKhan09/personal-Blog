@@ -3,7 +3,7 @@ import Cards from '@/components/cards/Cards'
 import Category from '@/components/categories/Category'
 
 
-const HomePage = async () => {
+const HomePage =  () => {
 
 
 

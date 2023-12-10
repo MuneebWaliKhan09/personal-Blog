@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+
 const update = ({ params }) => {
   const router = useRouter();
 
@@ -44,7 +45,7 @@ const update = ({ params }) => {
 
     try {
       const response = await axios
-        .put(`/api/blog/${params.id}`, formData)
+        .put(`/api/blog/${params.id}`, formData ,{ next: { revalidate: 30 } })
         .then((res) => {
           alert(JSON.stringify(res.data.msg));
           router.push("/create");

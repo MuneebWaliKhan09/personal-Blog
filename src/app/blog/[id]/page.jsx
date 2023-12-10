@@ -16,15 +16,15 @@ const blogdata = async (id) => {
 const page = async ({ params }) => {
   const d = await blogdata(params.id)
 
-console.log(d);
+console.log("blog", d);
 
   return (
     <>
 
       <div className='flex mt-8 justify-between mb-96 h-full min-h-[60vh]  blog gap-4 px-10 rounded-md py-10 pt-8 mx-10  bg-gray-50 transition-all  text-white font-bold'>
           <div className='flex flex-col gap-6'>
-            <h3 className=" font-bold title text-4xl text-gray-800 p-2">{d.title && d.title}</h3>
-            {d.desc && d.desc.map((des) => (
+            <h3 className=" font-bold title text-4xl text-gray-800 p-2">{d?.title && d.title}</h3>
+            {d?.desc && d.desc.map((des) => (
               <ul className=' text-justify'>
                 <h4 className='text-gray-700'>{des.start}</h4>
                 <p className='text-gray-500 mt-4'>{des.mid}</p>

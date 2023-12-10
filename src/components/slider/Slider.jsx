@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 import "../cards/cards.css";
 import axios from "axios";
 import Image from "next/image";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 
 const Slider = () => {
   const [data, Setdata] = useState([]);
 
   const blogsdata = async () => {
     const blog = await axios
-      .get("/api/blog")
+      .get("/api/blog",{ next: { revalidate: 30 } })
       .then((res) => {
         Setdata(res.data.data);
-        revalidatePath(`/create`);
+        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -25,11 +25,11 @@ const Slider = () => {
   const deletefunc = async (id)=>{
     const confirm = window.confirm("Are you sure you want to delete this blog ?");
     if(confirm){
-      const blog = await axios.delete(`/api/blog/${id}`)
+      const blog = await axios.delete(`/api/blog/${id}`,{ next: { revalidate: 30 } })
       .then((res) => {
         const filter = data && data.filter((d) => d._id !== id);
         Setdata(filter);
-        revalidatePath(`/blog/${id}`); // Add this line to revalidate the deleted blog path
+        // revalidatePath(`/blog/${id}`); // Add this line to revalidate the deleted blog path
         alert(JSON.stringify(res.data.msg));
 
       })
