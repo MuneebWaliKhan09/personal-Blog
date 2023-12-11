@@ -21,13 +21,14 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="col-lg-3 flex flex-col gap-3">
-                            <h4 className='font-semibold'>Shopping &amp; Categories</h4>
-                            <ul className='flex flex-col gap-2' >
-                                <li><a href="#">Men’s Shopping</a></li>
-                                <li><a href="#">Women’s Shopping</a></li>
-                                <li><a href="#">Kid's Shopping</a></li>
-                            </ul>
-                        </div>
+                        <h4 className='font-semibold'>Discover More</h4>
+                        <ul className='flex flex-col gap-2'>
+                            <li><a href="#">Tech Essentials</a></li>
+                            <li><a href="#">Bookworm's Haven</a></li>
+                            <li><a href="#">Fitness Finds</a></li>
+                        </ul>
+                    </div>
+
                         <div className="col-lg-3 flex flex-col gap-3">
                             <h4 className='font-semibold'>Useful Links</h4>
                             <ul className='flex flex-col gap-2' >
@@ -42,7 +43,7 @@ const Footer = () => {
                             <ul className='flex flex-col gap-2' >
                                 <li><a href="#">Help</a></li>
                                 <li><a href="#">FAQ's</a></li>
-                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">About</a></li>
                                 <li><a href="#">Tracking ID</a></li>
                             </ul>
                         </div>
@@ -50,9 +51,9 @@ const Footer = () => {
                     <div className="col-lg-12 flex items-center justify-center flex-col mt-8">
                     <hr className='h-[3px] w-[40%] bg-gray-400'/>
                         <div className="under-footer text-center flex flex-col gap-2 mt-5">
-                            <p className=' font-medium'>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+                            <p className=' font-medium'>Copyright © 2022 Blog {'{ MUNEEB }'} All Rights Reserved.
 
-                                <br />Design: <a href="https://templatemo.com" target="_parent" title="free css templates" className='text-blue-500'>Muneeb Shah</a></p>
+                                <br />Design: <a href="/" target="_parent" title="free css templates" className='text-blue-500'>Muneeb Shah</a></p>
                             <ul className='flex flex-col gap-2' >
                                 <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i className="fa fa-twitter"></i></a></li>

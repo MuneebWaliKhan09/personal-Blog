@@ -5,7 +5,7 @@ import Image from 'next/image';
 const AboutPage = () => {
   return (
     <div className="bg-gray-100 p-4 aboutus">
-      <div className="container mx-auto justify-between flex p-8 gap-3 aboutus">
+      <div className="container mx-auto justify-between flex p-8 gap-8 items-center aboutus">
         {/* Left Content */}
         <div className="w-2/3 text-justify bloginner">
           <h1 className="text-4xl blogname font-bold mb-4 text-gray-800">BLOG {'{ MUNEEB }'}</h1>
